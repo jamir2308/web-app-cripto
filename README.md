@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Web-App-Cripto
 
-## Getting Started
+Web-App-Cripto es una plataforma sencilla diseñada para proporcionar información sobre criptomonedas y permitir a los usuarios ver detalles de cada una de ellas. Inspirada en la arquitectura Flux, aunque por ser una pequeña App no se implementa el manejo de estado global. esta aplicación ofrece una experiencia intuitiva para explorar y conocer más sobre el emocionante mundo de las criptomonedas.
 
-First, run the development server:
+### Descripción General
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+La aplicación Web-App-Cripto te brinda acceso a datos en tiempo real sobre una variedad de criptomonedas populares. Los usuarios pueden explorar una lista de criptomonedas y obtener información clave, como el precio actual, la capitalización de mercado y la variación de precios en un período de tiempo determinado.
+
+### Características Destacadas
+
+Lista de Criptomonedas: Explora una lista completa de criptomonedas con información relevante, como nombre, símbolo y precio actual.
+Detalles de Criptomoneda: Haz clic en una criptomoneda para acceder a información detallada.
+
+### Tecnologías Utilizadas
+
+* Web-App-Cripto se ha construido utilizando las siguientes tecnologías y herramientas:
+
+* Next.js y React para el desarrollo web.
+
+* TypeScript para agregar tipado estático a JavaScript.
+
+* Material-UI para el diseño y la interfaz de usuario.
+
+* Styled Components para la gestión de estilos.
+
+* Jest y React Testing Library para realizar pruebas unitarias.
+
+### Estructura del Proyecto
+
+La estructura del proyecto se organiza en torno a la carpeta "app" y sigue una arquitectura modular que facilita la expansión y el mantenimiento del código. A continuación, se muestra una vista general de la estructura:
+
+```
+/
+|-- app/
+|   |-- components/
+|   |-- pages/
+|   |-- styles/ 
+|   |--__test__
+|-- public/
+|-- README.md
+|-- package.json
+|-- ...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Instalación
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Asegúrate de tener Node.js instalado en tu sistema antes de continuar.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clona el repositorio o descarga el código fuente:
 
-## Learn More
+```
+git clone https://github.com/jamir2308/web-app-cripto.git
+```
 
-To learn more about Next.js, take a look at the following resources:
+2. Ve al directorio del proyecto:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+cd web-app-cripto
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. Instala las dependencias:
 
-## Deploy on Vercel
+```
+npm install
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Ejecutar el Proyecto
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Para ejecutar la aplicación en modo de desarrollo, sigue estos pasos:
+
+1. Asegúrate de estar en la carpeta raiz del proyecto:
+
+```
+npm run dev
+```
+
+2. Abre tu navegador y visita http://localhost:3000 para ver la aplicación en acción.
+
+
+### Pruebas Unitarias
+
+Web-App-Cripto utiliza Jest y React Testing Library para realizar pruebas unitarias. Puedes ejecutar las pruebas fácilmente con los siguientes comandos:
+
+```
+npm test
+```
+
+### Contribuir
+
+¡Estamos abiertos a contribuciones! Si deseas colaborar en el proyecto, sigue estos pasos:
+
+1. Crea una rama de características:
+
+```
+git checkout -b mi-nueva-caracteristica
+```
+
+2. Realiza tus cambios y asegúrate de que las pruebas pasen.
+
+3. Envía tus cambios:
+
+```
+git commit -m "Agrega mi nueva característica"
+git push origin mi-nueva-caracteristica
+```
+
+4. Abre un Pull Request en GitHub.
