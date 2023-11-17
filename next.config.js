@@ -8,13 +8,14 @@ const nextConfig = {
       },
     ],
   },
-  async rewrites() {
+  async redirects() {
     return [
       {
-        source: "/api/:path*",
-        destination: "https://api.coinlore.net/api/:path*", // Proxy to Backend
+        source: '/',
+        destination: '/dashboard/products',
+        permanent: true,
       },
-    ];
+    ]
   },
 };
 
