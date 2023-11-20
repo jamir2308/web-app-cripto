@@ -15,16 +15,6 @@ export interface Coin {
 export interface CardIconProps {
     $bgColor: string;
 }
-
-export interface ExchangeProps {
-    exchange: {
-      id: string;
-      name: string;
-      url: string;
-      country: string;
-      volume_usd: number;
-    };
-  }
   
 export interface Exchange {
     id: string;
@@ -33,6 +23,10 @@ export interface Exchange {
     country: string;
     volume_usd: number;
 }
+
+export interface ExchangeData {
+    [key: number]: Exchange;
+};
 
 export interface CryptoConverterProps {
     priceUsd: string;
@@ -56,4 +50,18 @@ export interface GlobalData {
 
 export interface CoinTableProps {
     coins: Coin[];
-  }
+}
+
+export interface MarketStats {
+    coins_count: number;
+    active_markets: number;
+    total_mcap: number;
+    total_volume: number;
+    btc_d: string;
+    eth_d: string;
+    mcap_change: string;
+    volume_change: string;
+    avg_change_percent: number;
+    volume_ath: number;
+    mcap_ath: number;
+}

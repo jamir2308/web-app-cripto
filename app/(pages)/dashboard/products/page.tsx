@@ -1,33 +1,35 @@
 "use client";
 
 import CoinTable from "@/app/components/common/table/Index";
-import { Coin } from "@/app/models/ProductModel";
-import { Box, Container, TextField } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useAppDispatch } from "@/app/hooks/useAppDispatch";
+import { RootState } from "@/app/store/Index";
+import { fetchTickers } from "@/app/store/thunks/Cripto/TickersThunk";
+import { Box, CircularProgress, Container, TextField } from "@mui/material";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { useSelector } from "react-redux";
 
 const DashboardProductsPage = () => {
-
-  const [coins, setCoins] = useState<Coin[]>([]);
   const [filter, setFilter] = useState('');
-  const [filteredCoins, setFilteredCoins] = useState<Coin[]>([]);
+  const dispatch = useAppDispatch();
+  const { tickers, loading, error } = useSelector(
+    (state: RootState) => state.tickers
+  );
 
   useEffect(() => {
-    const filtered = coins.filter(coin =>
-      coin.name.toLowerCase().includes(filter.toLowerCase())
-    );
-    setFilteredCoins(filtered);
-  }, [filter, coins]);
-
-  useEffect(() => {
-    const fetchCoins = async () => {
-      const response = await fetch('https://api.coinlore.net/api/tickers/');
-      const data = await response.json();
-      setCoins(data.data);
-      setFilteredCoins(data.data);
-    };
-    fetchCoins();
+    dispatch(fetchTickers());
   }, []);
 
+  const filteredCoins = useMemo(() => {
+    return tickers.filter(coin =>
+      coin.name.toLowerCase().includes(filter.toLowerCase())
+    );
+  }, [filter, tickers]);
+
+  const handleSearch = useCallback((word: string) => {
+    setFilter(word);
+  }, []);
+    
+    if (loading) return <CircularProgress />;
   return (
     <Box>
       <Container maxWidth='xl'>
@@ -36,7 +38,7 @@ const DashboardProductsPage = () => {
           label="Filtrar por nombre de moneda"
           variant="outlined"
           value={filter}
-          onChange={(e) => setFilter(e.target.value)}
+          onChange={(e) => handleSearch(e.target.value)}
           fullWidth
           margin="normal"
         />

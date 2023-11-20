@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -12,7 +11,11 @@ import {
   Legend,
 } from "chart.js";
 import { Wraper } from "./Index.styles";
-import { CryptoDataSet } from "@/app/models/ProductModel";
+import { useAppDispatch } from "@/app/hooks/useAppDispatch";
+import { useSelector } from "react-redux";
+import { RootState } from "@/app/store/Index";
+import { fetchTickers } from "@/app/store/thunks/Cripto/TickersThunk";
+import { CircularProgress, Typography } from "@mui/material";
 
 ChartJS.register(
   CategoryScale,
@@ -25,25 +28,23 @@ ChartJS.register(
 );
 
 const CryptoChangeChart: React.FC = () => {
-  const [cryptoData, setCryptoData] = useState<CryptoDataSet[]>([]);
+  const dispatch = useAppDispatch();
+  const { tickers, loading, error } = useSelector(
+    (state: RootState) => state.tickers
+  );
 
   useEffect(() => {
-    axios
-      .get("https://api.coinlore.net/api/tickers/")
-      .then((response) => {
-        setCryptoData(response.data.data.slice(0, 10));
-      })
-      .catch((error) =>
-        console.error("Error al obtener datos de la API:", error)
-      );
+    dispatch(fetchTickers());
   }, []);
 
+  if (loading) return <CircularProgress />;
+
   const data = {
-    labels: cryptoData.map((crypto) => crypto.symbol),
+    labels: tickers?.map((crypto) => crypto.symbol),
     datasets: [
       {
         label: "Cambio % (24h)",
-        data: cryptoData.map((crypto) => parseFloat(crypto.percent_change_24h)),
+        data: tickers?.map((crypto) => crypto.percent_change_24h),
         fill: false,
         borderColor: "rgba(75, 192, 192, 0.2)",
         backgroundColor: "rgba(75, 192, 192, 1)",
@@ -53,7 +54,9 @@ const CryptoChangeChart: React.FC = () => {
 
   return (
     <Wraper>
-      <Line data={data} />
+      {error ? (
+        <Typography>{error}</Typography>
+      ) : <Line data={data} />}
     </Wraper>
   );
 };
