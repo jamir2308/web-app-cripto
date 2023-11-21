@@ -1,6 +1,6 @@
 ## Web-App-Cripto
 
-Web-App-Cripto es una plataforma sencilla diseñada para proporcionar información sobre criptomonedas y permitir a los usuarios ver detalles de cada una de ellas. Inspirada en la arquitectura Flux, aunque por ser una pequeña App no se implementa el manejo de estado global. esta aplicación ofrece una experiencia intuitiva para explorar y conocer más sobre el emocionante mundo de las criptomonedas.
+Web-App-Cripto es una plataforma sencilla diseñada para proporcionar información sobre criptomonedas y permitir a los usuarios ver detalles de cada una de ellas. Inspirada en la arquitectura Flux. esta aplicación ofrece una experiencia intuitiva para explorar y conocer más sobre el emocionante mundo de las criptomonedas.
 
 ### Descripción General
 
