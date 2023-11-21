@@ -33,8 +33,9 @@ La estructura del proyecto se organiza en torno a la carpeta "app" y sigue una a
 /
 |-- app/
 |   |-- components/
-|   |-- pages/
-|   |-- styles/ 
+|   |-- (pages)/
+|   |-- store
+|   |-- styles/
 |   |--__test__
 |-- public/
 |-- README.md
