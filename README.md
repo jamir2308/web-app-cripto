@@ -4,7 +4,7 @@ Web-App-Cripto es una plataforma sencilla diseñada para proporcionar informaci�
 
 ### Descripción General
 
-La aplicación Web-App-Cripto te brinda acceso a datos en tiempo real sobre una variedad de criptomonedas populares. Los usuarios pueden explorar una lista de criptomonedas y obtener información clave, como el precio actual, la capitalización de mercado y la variación de precios en un período de tiempo determinado.
+La aplicación Web-App-Cripto te brinda acceso a datos sobre una variedad de criptomonedas populares. Los usuarios pueden explorar una lista de criptomonedas y obtener información clave, como el precio actual, la capitalización de mercado y la variación de precios en un período de tiempo determinado.
 
 ### Características Destacadas
 
